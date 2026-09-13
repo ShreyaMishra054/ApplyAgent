@@ -1,0 +1,23 @@
+# Environment files with secrets
+.env
+*.env.local
+
+# Backend
+backend/target/
+backend/generated-resumes/
+backend/*.jar
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
