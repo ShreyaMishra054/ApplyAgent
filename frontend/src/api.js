@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: API_BASE_URL,
 });
 
 // Existing agent workflow APIs
@@ -13,7 +15,7 @@ export const evaluateResume = (resume) => api.post('/evaluate', resume);
 export const reviseResume = (data) => api.post('/revise', data);
 export const verifyResume = (data) => api.post('/verify', data);
 export const runAgent = (jobDescription, candidate) => api.post('/run-agent', { jobDescription, candidate });
-export const getDownloadUrl = (fileName) => `http://localhost:8080/api/download-resume?fileName=${fileName}`;
+export const getDownloadUrl = (fileName) => `${API_BASE_URL}/download-resume?fileName=${fileName}`;
 
 // NEW: Candidate persistence APIs (MySQL)
 export const getSavedCandidates = () => api.get('/candidates');
